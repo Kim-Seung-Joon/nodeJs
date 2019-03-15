@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>나의 메모</h3>
+    <br />
+    <form method="post" enctype="multipart/form-data" action="/process/save">
+      <table>
+        <tr>
+          <td><label>작성자</label></td>
+          <td><input type="text" name="author" /></td>
+        </tr>
+        <tr>
+          <td><label>작성일시</label></td>
+          <td><input type="text" name="createDate" id="date" /></td>
+        </tr>
+        <tr>
+          <td><label>내용</label></td>
+          <td>
+            <textarea
+              name="contents"
+              style="width:12em;height:10em;"
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td><label>사진</label></td>
+          <td>
+            <input type="file" name="photo" id="photoInput" /><br /><img
+              src=""
+              id="photoOutput"
+              width="200px"
+            />
+          </td>
+        </tr>
+      </table>
+
+      <input type="submit" value="저장" name="" />
+      <input type="button" value="닫기" />
+    </form>
+  </body>
+</html>
