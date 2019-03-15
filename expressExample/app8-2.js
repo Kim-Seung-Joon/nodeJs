@@ -21,21 +21,21 @@ app.use(bodyParser.json());
 
 var router = express.Router();
 
-router.route("/process/login").post((req, res) => {
-  console.log("/process/login 라우팅 함수에서 받음");
+router.route("/process/login/:name").post((req, res) => {
+  console.log("/process/login:name을 처리함");
+
+  var paramName = req.params.name;
 
   var paramId = req.body.id || req.query.id;
   var paramPassword = req.body.password || req.query.password;
 
   res.writeHead("200", { "Content-Type": "text/html;charset=utf-8" });
   res.write("<h1>서버에서의 로그인 응답</h1>");
+  res.write('<div><p>Param Name : '+paramName+'</p></div>')
   res.write("<div><p>" + paramId + "</p></div>");
   res.write("<div><p>" + paramPassword + "</p></div>");
+  res.write("<br><br><a href='/public/login3.html'>로그인 페이지로 돌아기기</a>");
   res.end();
-});
-
-app.all("*", (req, res) => {
-  res.status(404).send("<h1>Error- 페이지를 찾을 수 없습니다.</h1>");
 });
 
 app.use("/", router);
